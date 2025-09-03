@@ -1,6 +1,7 @@
 using BusinessLogicLayer;
 using DataAccessLayer;
 using Microsoft.Extensions.Options;
+using ProductsMicroService.API.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,4 +27,5 @@ app.UseCors(MyAllowSpecificOrigins);
 app.MapControllers();
 app.UseSwagger();
 app.UseSwaggerUI();
+app.UseMiddleware<ExceptionMiddleWare>();
 app.Run();
