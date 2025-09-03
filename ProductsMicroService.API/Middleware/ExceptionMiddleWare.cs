@@ -1,4 +1,6 @@
-﻿namespace ProductsMicroService.API.Middleware
+﻿using Microsoft.AspNetCore.Http;
+
+namespace ProductsMicroService.API.Middleware
 {
     public class ExceptionMiddleWare
     {
@@ -16,7 +18,7 @@
             }
             catch (Exception ex)
             {
-                throw ex;
+                await request.Response.WriteAsJsonAsync(ex.Message);
             }
         }
     }
