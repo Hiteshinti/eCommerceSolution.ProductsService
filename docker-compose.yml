@@ -1,0 +1,17 @@
+services:
+  productsmicroservice.api:
+    container_name: productsmicroservice.api
+    build:
+      context: ./ProductsMicroService.API
+      dockerfile: Dockerfile
+    image: productserviceapp:latest
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5259:7000"
+    networks:
+      - ocelot-shared-network
+
+networks:
+  ocelot-shared-network:
+    external: true
