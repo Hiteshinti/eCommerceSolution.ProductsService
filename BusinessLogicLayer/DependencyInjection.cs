@@ -14,6 +14,10 @@ namespace BusinessLogicLayer
     {
         public static IServiceCollection AddBusinessLogicLayer(this IServiceCollection service)
         {
+            service.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = $"{Environment.GetEnvironmentVariable("REDIS_HOST")}:{Environment.GetEnvironmentVariable("REDIS_PORT")}";
+            });
             service.AddTransient<IProductService, ProductService>();
             return service;
 

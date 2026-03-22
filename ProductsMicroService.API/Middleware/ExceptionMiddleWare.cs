@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace ProductsMicroService.API.Middleware
 {
     public class ExceptionMiddleWare
     {
         private readonly RequestDelegate _context;
+
         public ExceptionMiddleWare(RequestDelegate context)
         {
             _context = context;

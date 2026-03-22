@@ -65,5 +65,6 @@ namespace ProductsMicroService.API.Controllers
             ResponseMessage response = await _productService.DeleteProductById(id);
             return Ok(response);
         }
+
     }
 }

@@ -25,6 +25,7 @@ builder.Services.AddDataAccessLayer(builder.Configuration);
 builder.Services.AddBusinessLogicLayer();
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+builder.Services.AddMemoryCache();
 var app = builder.Build();
 
 //app.MapGet("/", () => "Hello World!");
@@ -32,5 +33,5 @@ app.UseCors(MyAllowSpecificOrigins);
 app.MapControllers();
 app.UseSwagger();
 app.UseSwaggerUI();
-app.UseMiddleware<ExceptionMiddleWare>();
+app.UseMiddleware<ExceptionMiddleWare>(); 
 app.Run();
