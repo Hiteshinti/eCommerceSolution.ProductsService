@@ -26,6 +26,7 @@ namespace ProductsMicroService.API.Controllers
 
         }
 
+
         [HttpGet("getproducts")]
         public async Task<IActionResult> GetProducts()
         {

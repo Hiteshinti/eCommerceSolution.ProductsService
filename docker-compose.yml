@@ -4,7 +4,7 @@ services:
     build:
       context: ./ProductsMicroService.API
       dockerfile: Dockerfile
-    image: usercontianerregistry.azurecr.io/productserviceapp:latest
+    image: productserviceapp:latest
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - REDIS_HOST=redis
@@ -12,7 +12,7 @@ services:
       - ASPNETCORE_URLS=http://+:8080
     ports:
        - "8080:8080"
-      # - "5259:7000"
+    
     networks:
       - ocelot-shared-network
 

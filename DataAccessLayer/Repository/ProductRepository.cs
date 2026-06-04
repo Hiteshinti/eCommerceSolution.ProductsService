@@ -63,13 +63,13 @@ namespace DataAccessLayer.Repository
         public async Task<bool> DeleteProduct(Guid productId)
         {
 
-            Product existingProduct = _dbContext.Products.FirstOrDefault(x => x.ProductId == productId);
+            Product? existingProduct = _dbContext.Products?.FirstOrDefault(x => x.ProductId == productId);
             if (existingProduct != null)
             {
                 return false;
             }
                 
-            _dbContext.Products.Remove(existingProduct);
+            _dbContext.Products?.Remove(existingProduct);
             await _dbContext.SaveChangesAsync();    
             return true;
 
